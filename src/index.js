@@ -5,6 +5,7 @@ import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import Preloader from "./components/Preloader";
 import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,3 +19,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+serviceWorker.unregister();
