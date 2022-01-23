@@ -1,36 +1,41 @@
 import React from "react";
 import styled from "styled-components";
 import TypeWriterEffect from "react-typewriter-effect";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 const HeroContent = () => {
   return (
     <HeroContentContainer>
-      <h1>Salaar Khan</h1>
+      <AnimationOnScroll animateIn="animate__fadeInDown" delay={400}>
+        <h1>Salaar Khan</h1>
+      </AnimationOnScroll>
       <HeroContentAnimation>
-        <h2>
-          I'm a{" "}
-          <TypeWriterEffect
-            textStyle={{
-              fontFamily: "Poppins",
-              color: "#00AB55",
-              fontWeight: 600,
-              fontSize: "inherit",
-              letterSpacing: "3px",
-            }}
-            startDelay={500}
-            cursorColor="#F9FAFB"
-            multiText={[
-              "Freelancer ",
-              "Web Developer ",
-              "Data Scientist ",
-              "Web Designer ",
-              "Ethical Hacker",
-            ]}
-            multiTextDelay={1000}
-            typeSpeed={40}
-            multiTextLoop
-          />
-        </h2>
+        <AnimationOnScroll animateIn="animate__fadeInUp" delay={1100}>
+          <h2>
+            I'm a{" "}
+            <TypeWriterEffect
+              textStyle={{
+                fontFamily: "Poppins",
+                color: "#00AB55",
+                fontWeight: 600,
+                fontSize: "inherit",
+                letterSpacing: "3px",
+              }}
+              startDelay={500}
+              cursorColor="#F9FAFB"
+              multiText={[
+                "Freelancer ",
+                "Web Developer ",
+                "Data Scientist ",
+                "Web Designer ",
+                "Ethical Hacker",
+              ]}
+              multiTextDelay={1000}
+              typeSpeed={40}
+              multiTextLoop
+            />
+          </h2>
+        </AnimationOnScroll>
       </HeroContentAnimation>
     </HeroContentContainer>
   );
