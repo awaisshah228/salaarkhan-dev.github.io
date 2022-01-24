@@ -33,18 +33,18 @@ const ProjectCard = ({ name, html_url, created_at, id }) => {
           <Skeleton
             baseColor={theme.skeletonBase}
             highlightColor={theme.skeletonHighlight}
-            height={200}
             style={{
               lineHeight: "1",
+              height: "200px",
             }}
           />
         )}
         <img
-          src={`https://pics8um.photos/350/200?${id}`}
+          src={`https://picsum.photos/350/200?${id}`}
           alt="cover"
           onLoad={handleImageLoad}
         />
-        <span></span>
+        {imageLoad && <span></span>}
         <DateContainer>
           {`${new Date(created_at).getDate()} ${
             monthNames[new Date(created_at).getMonth()]
@@ -141,7 +141,7 @@ const TypographyContainer = styled.div`
 
 const ImageContainer = styled.div`
   flex: 0.8;
-  height: 200px;
+  height: 100%;
   position: relative;
   img {
     object-fit: cover;
@@ -153,6 +153,7 @@ const ImageContainer = styled.div`
     height: 100%;
   }
   span {
+    overflow: hidden;
     position: absolute;
     left: 0;
     right: 0;
