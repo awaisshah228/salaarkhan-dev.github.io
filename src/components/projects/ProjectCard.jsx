@@ -1,8 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { useTheme } from "styled-components";
 import { VscGithubInverted } from "react-icons/vsc";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const ProjectCard = ({ name, html_url, created_at, id }) => {
+  const [imageLoad, setImageLoad] = useState(false);
+  const theme = useTheme();
   const monthNames = [
     "Jan",
     "Feb",
@@ -18,10 +22,28 @@ const ProjectCard = ({ name, html_url, created_at, id }) => {
     "Dec",
   ];
 
+  const handleImageLoad = () => {
+    setImageLoad(true);
+  };
+
   return (
     <ProjectCardContainer>
       <ImageContainer>
-        <img src={`https://picsum.photos/350/200?${id}`} alt="cover" />
+        {!imageLoad && (
+          <Skeleton
+            baseColor={theme.skeletonBase}
+            highlightColor={theme.skeletonHighlight}
+            height={200}
+            style={{
+              lineHeight: "1",
+            }}
+          />
+        )}
+        <img
+          src={`https://pics8um.photos/350/200?${id}`}
+          alt="cover"
+          onLoad={handleImageLoad}
+        />
         <span></span>
         <DateContainer>
           {`${new Date(created_at).getDate()} ${
@@ -119,6 +141,7 @@ const TypographyContainer = styled.div`
 
 const ImageContainer = styled.div`
   flex: 0.8;
+  height: 200px;
   position: relative;
   img {
     object-fit: cover;

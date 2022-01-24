@@ -1,6 +1,8 @@
 export const lightTheme = {
   background: "#F9FAFB",
   card: "#f5f5f5",
+  skeletonBase: "#ebebeb",
+  skeletonHighlight: "#f5f5f5",
   border: "rgba(22, 28, 36, 0.1)",
   scrollBar: "#00AB55",
   secondary: "#161C24",
@@ -25,6 +27,8 @@ export const lightTheme = {
 export const darkTheme = {
   background: "#121212",
   card: "#161616",
+  skeletonBase: "#202020",
+  skeletonHighlight: "#444",
   border: "rgba(244, 246, 248, 0.055)",
   scrollBar: "#202020",
   secondary: "#F4F6F8",

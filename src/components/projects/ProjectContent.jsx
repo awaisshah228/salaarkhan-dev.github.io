@@ -6,10 +6,10 @@ import {
   selectorRepos,
   selectorReposLoading,
 } from "../../features/repos/reposSlice";
-import PuffLoader from "react-spinners/PuffLoader";
 import CustomPagination from "../CustomPagination";
 import ProjectCard from "./ProjectCard";
 import ProjectsList from "./ProjectsList";
+import ProjectsSkeleton from "./ProjectsSkeleton";
 
 const ProjectContent = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,11 @@ const ProjectContent = () => {
     <ProjectContentContainer>
       <ProjectsList>
         {reposLoading ? (
-          <PuffLoader color="#00AB55" size={65} />
+          <>
+            <ProjectsSkeleton />
+            <ProjectsSkeleton />
+            <ProjectsSkeleton />
+          </>
         ) : currentRepos?.length ? (
           currentRepos?.map((repo, id) => (
             <ProjectCard
